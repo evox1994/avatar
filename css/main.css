@@ -1272,8 +1272,8 @@
 .face-form .params .param .quantity .less,
 .face-form .params .param .quantity .more {
 	display: block;
-	width: 8px;
-	height: 8px;
+	width: 20px;
+	height: 20px;
 	position: relative;
 	cursor: pointer;
 }
@@ -1281,11 +1281,11 @@
 .face-form .params .param .quantity .more:before,
 .face-form .params .param .quantity .more:after {
 	content: '';
-	width: 100%;
+	width: 8px;
 	height: 1px;
 	background-color: #0552a4;
 	position: absolute;
-	left: 0;
+	left: calc(50% - 4px);
 	top: calc(50% - 0.5px);
 }
 .face-form .params .param .quantity .more:after {
