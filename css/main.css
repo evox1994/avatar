@@ -494,7 +494,7 @@
 	text-align: left;
 }
 .b-section.blue {
-	background-color: #0552a4;
+	background-color: #003c7a;
 	color: #ffffff;
 }
 .b-section.green {
@@ -1064,6 +1064,10 @@
 	padding-top: 40px;
 	position: relative;
 }
+.b-face.first {
+	padding: 0;
+	background-color: #eff3f6;
+}
 .b-face .face-label {
 	display: inline-block;
 	font-size: 16px;
@@ -1091,6 +1095,12 @@
 	justify-content: space-between;
 	align-items: stretch;
 	flex-wrap: wrap;
+}
+.b-face.first .wrap {
+	margin-top: 0;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
 }
 .b-face .face-slider {
 	position: relative;
@@ -1407,6 +1417,46 @@
 	width: calc(100% - 160px);
 	margin-bottom: 0;
 }
+.b-face .wrap .face-content {
+	width: calc(50% - 25px);
+	max-width: 400px;
+	text-align: left;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+	flex-wrap: wrap;
+	padding: 70px 0;
+}
+.b-face .wrap .face-content .content {
+	width: 100%;
+}
+.b-face .wrap .face-content .text {
+	margin-top: 30px;
+	font-size: 16px;
+	line-height: 1.5;
+}
+.b-face .wrap .face-content .b-btn {
+	max-width: 150px;
+	margin-top: 50px;
+}
+.b-face .wrap .face-image {
+	width: calc(50% - 15px);
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-end;
+	flex-wrap: wrap;
+}
+.b-face .wrap .face-image img {
+	display: block;
+	max-width: 100%;
+	margin: 0 auto;
+}
 
 .b-popup {
 	display: block;
@@ -1519,6 +1569,63 @@
 	max-width: 240px;
 	margin: 40px auto 0;
 	padding: 21px 10px;
+}
+
+.b-faq {
+	border-radius: 10px;
+	border: 1px solid #e0e9f6;
+	overflow: hidden;
+	text-align: left;
+	max-width: 830px;
+	margin: 50px auto 0;
+}
+.b-faq > li {
+	border-bottom: 1px solid #e0e9f6;
+}
+.b-faq > li:last-child {
+	border: 0;
+}
+.b-faq > li .qwestion {
+	display: block;
+	font-size: 20px;
+	font-weight: 600;
+	padding: 22px 65px 22px 30px;
+	cursor: pointer;
+	position: relative;
+}
+.b-faq > li .qwestion:before {
+	content: '';
+	width: 13px;
+	height: 13px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url('../i/map-icon-arr.svg');
+	position: absolute;
+	right: 30px;
+	top: calc(50% - 6.5px);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.b-faq > li.active .qwestion:before {
+	-webkit-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+	-ms-transform: rotate(-180deg);
+	transform: rotate(-180deg);
+}
+.b-faq > li .answer {
+	height: 0;
+	overflow: hidden;
+}
+.b-faq > li .answer .content {
+	padding: 30px;
+	border-top: 1px solid #e0e9f6;
+}
+.b-faq > li .answer .content .text {
+	font-size: 16px;
+	line-height: 1.5;
 }
 
 
@@ -1997,6 +2104,20 @@
 	.face-form .submit-wrap .flex .face-input {
 		width: calc(100% - 150px);
 	}
+	.b-face .wrap .face-content {
+		width: calc(50% - 10px);
+		padding: 40px 0;
+	}
+	.b-face .wrap .face-image {
+		width: calc(50% - 10px);
+	}
+	.b-face .wrap .face-content .text {
+		margin-top: 20px;
+		font-size: 14px;
+	}
+	.b-face .wrap .face-content .b-btn {
+		margin-top: 30px;
+	}
 
 	.b-popup {
 		padding: 20px;
@@ -2023,6 +2144,24 @@
 	.b-error .wrap .content .b-btn {
 		margin: 20px auto 0;
 		padding: 18px 10px;
+	}
+
+	.b-faq {
+		margin: 30px auto 0;
+		border-radius: 5px;
+	}
+	.b-faq > li .qwestion {
+		padding: 15px 33px 15px 15px;
+		font-size: 16px;
+	}
+	.b-faq > li .qwestion:before {
+		right: 10px;
+	}
+	.b-faq > li .answer .content {
+		padding: 15px;
+	}
+	.b-faq > li .answer .content .text {
+		font-size: 14px;
 	}
 }
 @media screen and (max-width: 560px){
@@ -2112,5 +2251,23 @@
 	.b-news.col-2 > .item {
 		width: 100%;
 		margin-right: auto;
+	}
+
+	.b-face.first .wrap {
+		display: block;
+	}
+	.b-face .wrap .face-content {
+		display: block;
+		width: 100%;
+		margin: 0 auto;
+		padding: 40px 0 30px;
+		text-align: center;
+	}
+	.b-face .wrap .face-content .b-btn {
+		margin: 30px auto 0;
+	}
+	.b-face .wrap .face-image {
+		display: block;
+		width: 100%;
 	}
 }

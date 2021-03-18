@@ -191,6 +191,16 @@ $(document).ready(function(){
 		}
 	});
 
+	$(document).on('click','.b-faq > li .qwestion',function(){
+		if ( $(this).parent('li').hasClass('active') ){
+			$(this).parent('li').removeClass('active');
+			$(this).parent('li').find('.answer').animate({height: 0},500);
+		} else {
+			$(this).parent('li').addClass('active');
+			$(this).parent('li').find('.answer').animate({height: $(this).parent('li').find('.answer .content').outerHeight()},500);
+		}
+	});
+
 	function printTime(hours,minutes){
 		let day = 'Сегодня, ';
 		let print_hours = hours + 1;
@@ -265,6 +275,18 @@ $(document).ready(function(){
 	}
 	scrollElement('.b-scrollable','.b-scroll-element');
 
+	function changeFaqElemHeight(){
+		if ( $('.b-faq').length ){
+			$('.b-faq > li.active .answer').each(function(){
+				let $element = $(this);
+				setTimeout(function(){
+					$element.css('height',$element.find('.content').outerHeight());
+				},100);
+			});
+		}
+	}
+	changeFaqElemHeight();
+
 	$(window).on('scroll',function(){
 		scrollElement('.b-scrollable','.b-scroll-element');		
 	});
@@ -273,6 +295,7 @@ $(document).ready(function(){
 		scrollElement('.b-scrollable','.b-scroll-element');
 		setHeightFullWindow('.b-thanks .wrap');
 		setHeightFullWindow('.b-error .wrap');
+		changeFaqElemHeight();
 	});
 
 });
