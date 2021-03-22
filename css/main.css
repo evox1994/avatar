@@ -2208,6 +2208,10 @@
 	.b-player.played .progress-bar .bar .line:before {
 		opacity: 1;
 	}
+	.b-player.played .volume:hover .volume-bar {
+		display: none;
+	}
+
 
 	.b-reviews {
 		display: block;
