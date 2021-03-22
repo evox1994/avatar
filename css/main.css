@@ -1780,15 +1780,21 @@
 	align-items: center;
 	align-content: center;
 	width: 100%;
-	height: 50px;
+	height: 70px;
 	background-color: #0552a4;
 	border-radius: 100px;
-	margin-top: 30px;
-	padding: 0 5px;
+	padding: 5px 20px 5px 5px;
+	text-align: center;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
 }
 .b-player .play-btn {
-	width: 40px;
-	height: 40px;
+	width: 60px;
+	height: 60px;
 	position: relative;
 	border: 2px solid #ffffff;
 	border-radius: 50%;
@@ -1806,7 +1812,7 @@
 	top: calc(50% - 10px);
 	left: calc(50% - 6px);
 }
-.b-player .play-btn.played:before {
+.b-player.played .play-btn:before {
 	width: 14px;
 	height: 20px;
 	border: 5px solid #ffffff;
@@ -1824,11 +1830,12 @@
 	color: #ffffff;
 }
 .b-player .progress-bar {
-	width: calc(100% - 264px);
+	width: calc(100% - 284px);
 	height: 30px;
 	position: relative;
 	margin: 0 7px;
 	cursor: pointer;
+	touch-action: none;
 }
 .b-player .progress-bar .bar {
 	width: 100%;
@@ -1873,8 +1880,25 @@
 	display: block;
 	width: 100%;
 	height: 100%;
-	background-color: #ffffff;
 	cursor: pointer;
+	position: relative;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url('../i/volume-icon.svg');
+}
+.b-player .volume .volume-btn.muted:before {
+	content: '';
+	width: 100%;
+	height: 4px;
+	background-color: #ffffff;
+	position: absolute;
+	left: 0;
+	top: calc(50% - 2px);
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
 }
 .b-player .volume .volume-bar {
 	display: none;
@@ -1945,6 +1969,67 @@
 }
 .b-player .volume .volume-bar .bar:hover .line:before {
 	opacity: 1;
+}
+
+.b-reviews {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	flex-wrap: wrap;
+}
+.b-reviews .item {
+	width: calc(50% - 25px);
+	padding: 50px;
+	border-radius: 10px;
+	background-color: #f4f9fe;
+	margin-top: 35px;
+	text-align: left;
+	position: relative;
+}
+.b-reviews .item.audio-review {
+	padding-bottom: 100px;
+}
+.b-reviews .item .image {
+	display: block;
+	width: 170px;
+	height: 200px;
+	border-radius: 10px;
+	background-color: #e3edf8;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	position: absolute;
+	left: -10px;
+	top: -10px;
+}
+.b-reviews .item.img-review .head {
+	padding-left: 140px;
+	min-height: 140px;
+}
+.b-reviews .item .title {
+	display: block;
+	font-size: 20px;
+	font-weight: 600;
+}
+.b-reviews .item .date {
+	display: block;
+	font-size: 14px;
+	color: #9b9b9b;
+	margin-top: 20px;
+}
+.b-reviews .item .text {
+	display: block;
+	font-size: 16px;
+	color: #222222;
+	margin-top: 20px;
+}
+.b-reviews .item .b-player {
+	width: calc(100% + 20px);
+	position: absolute;
+	left: -10px;
+	bottom: 0;
 }
 
 
@@ -2118,6 +2203,19 @@
 	}
 	.b-docs > li a .content {
 		max-width: none;
+	}
+
+	.b-player.played .progress-bar .bar .line:before {
+		opacity: 1;
+	}
+
+	.b-reviews {
+		display: block;
+	}
+	.b-reviews .item {
+		width: 100%;
+		max-width: 560px;
+		margin: 35px auto 0;
 	}
 }
 @media screen and (max-width: 768px){
@@ -2568,6 +2666,50 @@
 	.b-docs > li a .size {
 		font-size: 12px;
 		margin-top: 10px;
+	}
+
+	.b-player {
+		height: 50px;
+	}
+	.b-player .play-btn {
+		width: 40px;
+		height: 40px;
+	}
+	.b-player .progress-bar {
+		width: calc(100% - 224px);
+	}
+
+	.b-reviews .item {
+		margin: 20px auto 0;
+		padding: 20px;
+	}
+	.b-reviews .item.audio-review {
+		padding-bottom: 70px;
+	}
+	.b-reviews .item .image {
+		width: 100px;
+		height: 120px;
+		top: -5px;
+		left: -5px;
+	}
+	.b-reviews .item.img-review .head {
+		padding-left: 90px;
+		min-height: 95px;
+	}
+	.b-reviews .item .title {
+		font-size: 16px;
+	}
+	.b-reviews .item .date {
+		font-size: 12px;
+		margin-top: 10px;
+	}
+	.b-reviews .item .text {
+		font-size: 14px;
+		margin-top: 10px;
+	}
+	.b-reviews .item .b-player {
+		width: calc(100% + 10px);
+		left: -5px;
 	}
 }
 @media screen and (max-width: 560px){

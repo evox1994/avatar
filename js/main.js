@@ -330,6 +330,10 @@ $(document).ready(function(){
 		$(document).on('click','.b-player .play-btn',function(){
 			let player = $(this).parents('.b-player').attr('data-player');
 			let $element = $(this).parents('.b-player');
+			if ( players[player].ended ){
+				$element.find('.current-time').text(printTime(0));
+				$element.find('.progress-bar .bar .line').css('width',0);
+			}
 			if ( players[player].paused ){
 				for ( key in players ){
 					if ( !players[key].paused ){
@@ -337,20 +341,20 @@ $(document).ready(function(){
 					}
 				}
 				players[player].play();
-				$('.b-player .play-btn').removeClass('played');
-				$(this).addClass('played');
+				$('.b-player').removeClass('played');
+				$(this).parents('.b-player').addClass('played');
 				playerTime = setInterval(function(){
 					let progress = Math.round($element.find('.progress-bar').innerWidth() * players[player].currentTime / players[player].duration);
 					$element.find('.progress-bar .bar .line').css('width',progress);
 					$element.find('.current-time').text(printTime(Math.round(players[player].currentTime)));
 					if ( players[player].ended ){
 						clearInterval(playerTime);
-						$element.find('.play-btn').removeClass('played');
+						$element.removeClass('played');
 					}
 				},1000);
 			} else {
 				players[player].pause();
-				$(this).removeClass('played');
+				$(this).parents('.b-player').removeClass('played');
 				clearInterval(playerTime);
 			}
 		});
@@ -373,21 +377,32 @@ $(document).ready(function(){
 				players[player].currentTime = time;
 			}
 
-			$(document).on('mousedown','.b-player .progress-bar',function(event){
+			$(document).on('pointerdown','.b-player .progress-bar',function(event){
 				let player = $(this).parents('.b-player').attr('data-player');
 				onMouseDown = true;
 				moveProgress(this,player,event);
+				if ( $(this).parents('.b-player').hasClass('played') ){
+					players[player].pause();
+				}
 			});
 
-			$(document).on('mouseup','.b-player .progress-bar',function(){
+			$(document).on('pointerup','.b-player .progress-bar',function(event){
+				let player = $(this).parents('.b-player').attr('data-player');
 				onMouseDown = false;
+				if ( $(this).parents('.b-player').hasClass('played') ){
+					players[player].play();
+				}
 			});
 
-			$(document).on('mouseleave','.b-player .progress-bar',function(){
+			$(document).on('pointerleave','.b-player .progress-bar',function(event){
+				let player = $(this).parents('.b-player').attr('data-player');
 				onMouseDown = false;
+				if ( $(this).parents('.b-player').hasClass('played') ){
+					players[player].play();
+				}
 			});
 
-			$(document).on('mousemove','.b-player .progress-bar',function(event){
+			$(document).on('pointermove','.b-player .progress-bar',function(event){
 				let player = $(this).parents('.b-player').attr('data-player');
 				if ( onMouseDown ){
 					moveProgress(this,player,event);
