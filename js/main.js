@@ -136,6 +136,11 @@ $(document).ready(function(){
 		autoplay: true
 	});
 
+	$('.example-slider').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1
+	});
+
 	$(document).on('click',function(e){
 		let $elem = $(e.target);
 
@@ -235,12 +240,15 @@ $(document).ready(function(){
 			let headerHeight = $('.header').outerHeight();
 			let windowHeight = $(window).innerHeight();
 			let blockHeight = windowHeight - headerHeight;
-			//$(element).innerHeight(blockHeight);
+			if ( $(element).prev().hasClass('breadcrumbs') ){
+				blockHeight -= $('.breadcrumbs').outerHeight();
+			}
 			$(element).css('min-height',blockHeight);
 		}
 	}
 	setHeightFullWindow('.b-thanks .wrap');
 	setHeightFullWindow('.b-error .wrap');
+	setHeightFullWindow('.b-section.full-window');
 
 	function scrollElement(parent,element){
 		if ( $(parent).length && $(parent).find(element).length ){
@@ -472,6 +480,7 @@ $(document).ready(function(){
 		scrollElement('.b-scrollable','.b-scroll-element');
 		setHeightFullWindow('.b-thanks .wrap');
 		setHeightFullWindow('.b-error .wrap');
+		setHeightFullWindow('.b-section.full-window');
 		changeFaqElemHeight();
 	});
 
