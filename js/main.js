@@ -138,7 +138,21 @@ $(document).ready(function(){
 
 	$('.example-slider').slick({
 		slidesToShow: 3,
-		slidesToScroll: 1
+		slidesToScroll: 1,
+		responsive: [
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 420,
+				settings: {
+					slidesToShow: 1
+				}
+			}
+		]
 	});
 
 	$(document).on('click',function(e){
