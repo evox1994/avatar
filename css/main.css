@@ -801,17 +801,23 @@
 }
 .b-switch > li:after {
 	content: '';
-	opacity: 0;
 	width: 100%;
 	height: 3px;
 	border-radius: 5px 5px 0 0;
-	background-color: #0552a4;
+	background-color: transparent;
 	position: absolute;
 	left: 0;
 	bottom: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.b-switch > li:hover:after {
+	background-color: #cccccc;
 }
 .b-switch > li.active:after {
-	opacity: 1;
+	background-color: #0552a4;
 }
 
 .b-cards-list {
