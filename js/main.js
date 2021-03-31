@@ -38,6 +38,16 @@ $(document).ready(function(){
 	$('textarea').on('input',function(){
 		$(this).removeClass('error');
 	});
+	$('input.required').on('blur',function(){
+		if ( !$(this).val().length ){
+			$(this).addClass('error');
+		}
+	});
+	$('textarea.required').on('blur',function(){
+		if ( !$(this).val().length ){
+			$(this).addClass('error');
+		}
+	});
 
 	$(document).on('click','.scroll-btn',function(){
 		var el = $(this).attr('href');
@@ -133,7 +143,8 @@ $(document).ready(function(){
 	});
 
 	$('.face-slider').slick({
-		autoplay: true
+		autoplay: true,
+		dots: true
 	});
 
 	$('.example-slider').slick({
