@@ -203,17 +203,25 @@ $(document).ready(function(){
 
 	$(document).on('click','.param .quantity .more',function(){
 		let quantity = +$(this).parent('.quantity').find('input.text').val();
-		quantity++;
-		$(this).parent('.quantity').find('input.text').val(quantity);
+		if (quantity < 100){
+			quantity++;
+			$(this).parent('.quantity').find('input.text').val(quantity);
+		}
 	});
 
+	let prevValue;
 	$('.param .quantity input.text').on('input',function(){
 		let value = +$(this).val();
 		if ( $(this).val().length ){
+			if ( value > 99 ){
+				$(this).val(prevValue);
+				return;
+			}
 			if ( (value < 0) || (value == -0) ){
 				$(this).val(0);
 			}
 		}
+		prevValue = value;
 	});
 	$('.param .quantity input.text').on('change',function(){
 		if ( !$(this).val().length ){
