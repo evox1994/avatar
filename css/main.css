@@ -2041,13 +2041,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	align-content: space-between;
+	align-content: flex-end;
 	flex-wrap: wrap;
-	padding-top: 60px;
+	padding-top: 10vh;
 }
 .b-thanks .wrap .content {
 	width: 100%;
-	margin-bottom: 30px;
+	margin-bottom: 15vh;
 }
 .b-thanks .wrap .image {
 	width: 100%;
@@ -3932,10 +3932,6 @@
 	}
 	.b-popup .popup-city .content .b-form {
 		max-width: 300px;
-	}
-
-	.b-thanks .wrap .content {
-		margin-bottom: 20px;
 	}
 
 	.b-error .wrap .content .emoji {
