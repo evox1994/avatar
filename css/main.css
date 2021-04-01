@@ -3450,15 +3450,20 @@
 		width: auto;
 		font-size: 0;
 		line-height: 1;
+		/*display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;*/
 	}
 	.header-phones .wa {
-		display: inline-block;
-		margin: 0 0 0 5px;
+		display: none;
+		margin: 0 5px 0 0;
 	}
 	.header-phones .wa a {
 		display: block;
-		width: 20px;
-		height: 20px;
+		width: 30px;
+		height: 30px;
 		background-position: center;
 		background-size: contain;
 		background-repeat: no-repeat;
@@ -3472,11 +3477,12 @@
 	.header-phones .phone {
 		display: inline-block;
 		font-size: 0;
+		order: 1;
 	}
 	.header-phones .phone a {
 		display: block;
-		width: 20px;
-		height: 20px;
+		width: 30px;
+		height: 30px;
 		background-image: url('../i/header-phone.svg');
 		background-repeat: no-repeat;
 		background-position: center;
