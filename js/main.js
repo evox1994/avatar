@@ -505,6 +505,17 @@ $(document).ready(function(){
 	}
 	createPlayers();
 
+	function swapImage(){
+		if ( $('img[data-src]').length ){
+			$('img[data-src]').each(function(){
+				let img_width = $(this).outerWidth();
+				$(this).attr('src',$(this).attr('data-src'));
+				$(this).css('width',img_width);
+			});
+		}
+	}
+	swapImage();
+
 	$(window).on('scroll',function(){
 		scrollElement('.b-scrollable','.b-scroll-element');		
 	});
