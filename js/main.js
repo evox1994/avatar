@@ -514,20 +514,17 @@ $(document).ready(function(){
 	createPlayers();
 
 	function swapImage(){
-		if ( $('img[data-src]').length ){
-			$('img[data-src]').each(function(){
-				let img_width = $(this).outerWidth();
-				$(this).attr('src',$(this).attr('data-src'));
-				$(this).css({
-					'width':'100%',
-					'max-width': img_width,
-				});
-			});
-		}
 		if ( isRetina() || isHighDensity() ){
-			alert('высокое разрешение');
-		} else {
-			alert('нифига');
+			if ( $('img[data-src]').length ){
+				$('img[data-src]').each(function(){
+					let img_width = $(this).outerWidth();
+					$(this).attr('src',$(this).attr('data-src'));
+					$(this).css({
+						'width':'100%',
+						'max-width': img_width,
+					});
+				});
+			}
 		}
 	}
 	swapImage();

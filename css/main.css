@@ -1452,6 +1452,7 @@
 	position: absolute;
 	left: 15px;
 	bottom: calc(100% - 7px);
+	white-space: nowrap;
 }
 .face-form .cols .action {
 	left: 25px;
