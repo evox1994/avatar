@@ -87,6 +87,9 @@
 	padding-left: 25px;
 	font-size: 14px;
 }
+.header-city a:hover {
+	color: #0552a4;
+}
 .header-city a:before {
 	content: '';
 	width: 17px;
@@ -2003,6 +2006,19 @@
 .b-popup .b-input input,
 .b-popup .b-input textarea {
 	background-color: #e2eefd;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.b-popup .b-input input:focus,
+.b-popup .b-input textarea:focus {
+	border-color: #000000;
+	background-color: #ffffff;
+}
+.b-popup .b-input input.error,
+.b-popup .b-input textarea.error {
+	background-color: rgba(224,31,25,.12);
 }
 
 .b-scrollable {
