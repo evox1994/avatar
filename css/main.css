@@ -512,6 +512,9 @@
 	font-size: 11px;
 	color: #9b9b9b;
 }
+.footer-bot .logo-dev a:hover {
+	color: #ffffff;
+}
 
 .breadcrumbs {
 	position: relative;
