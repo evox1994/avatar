@@ -619,6 +619,13 @@
 .b-btn.yellow-btn:hover {
 	background-color: #ddaa00;
 }
+.b-btn.white-btn {
+	background-color: #ffffff;
+	color: #000000;
+}
+.b-btn.white-btn:hover {
+	background-color: #eeeeee;
+}
 .b-btn.section-btn {
 	padding: 21px 10px;
 	max-width: 300px;
