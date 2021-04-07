@@ -247,6 +247,11 @@ $(document).ready(function(){
 		}
 	});
 
+	let cities = ['Томск','Новосибирск'];
+	$('.city-inp').autocomplete({
+		lookup: cities
+	});
+
 	function printTime(hours,minutes){
 		let day = 'Сегодня, ';
 		let print_hours = hours + 1;

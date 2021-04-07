@@ -544,8 +544,7 @@
 	background-color: #003c7a;
 	color: #ffffff;
 }
-.b-section.green {
-	background-image: linear-gradient(74.77deg, #005742 29.42%, #008059 73.65%);
+.b-section.gradient {
 	color: #ffffff;
 }
 .b-section.full-window {
@@ -3082,6 +3081,27 @@
 	margin-top: 50px;
 }
 
+.autocomplete-suggestions {
+	text-align: left;
+	background-color: #ffffff;
+	border-radius: 0 0 5px 5px;
+	padding: 5px 0;
+	font-size: 14px;
+	border: 1px solid #000000;
+	z-index: 99999 !important;
+}
+.autocomplete-suggestion {
+	cursor: pointer;
+	padding: 5px 25px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.autocomplete-suggestion:hover {
+	color: #0552a4;
+}
+
 
 
 @media screen and (max-width: 1230px){
@@ -4263,6 +4283,13 @@
 	}
 	.b-actions > .item .content .b-subscribe {
 		margin: 20px auto 0;
+	}
+
+	.autocomplete-suggestions {
+		font-size: 12px;
+	}
+	.autocomplete-suggestion {
+		padding: 5px 15px;
 	}
 }
 @media screen and (max-width: 560px){
